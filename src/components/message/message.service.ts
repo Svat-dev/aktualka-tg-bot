@@ -1,4 +1,4 @@
-import { admin_id_2, bot, localData } from "../..";
+import { admin_id, bot, localData } from "../..";
 
 import { EnumCommands } from "../../assets/data";
 
@@ -14,7 +14,7 @@ export const MessageService = async () => {
 		}
 
 		if (msg.text === EnumCommands.INFO) {
-			await bot.sendMessage(chatId, "Актулка бот");
+			await bot.sendMessage(chatId, "Актуалка бот");
 			await bot.sendMessage(chatId, "Версия: 1.0.0");
 			await bot.sendMessage(chatId, "Автор: @swutIIk_get");
 			return bot.sendMessage(chatId, "Для канала: @aktualka_news");
@@ -31,13 +31,17 @@ export const MessageService = async () => {
 		}
 
 		if (localData[chatId]) {
-			await bot.sendMessage(chatId, "Оправлено!");
+			try {
+				if (msg.photo) {
+					await bot.sendMessage(admin_id, "Сообщение от " + username);
+					await bot.sendPhoto(admin_id, msg.photo?.[0].file_id, { caption: msg.caption || "" });
+				} else {
+					await bot.sendMessage(admin_id, "Сообщение от " + username + ": " + msg.text);
+				}
 
-			if (msg.photo) {
-				await bot.sendMessage(admin_id_2, "Сообщение от " + username);
-				await bot.sendPhoto(admin_id_2, msg.photo?.[0].file_id, { caption: msg.caption || "" });
-			} else {
-				await bot.sendMessage(admin_id_2, "Сообщение от " + username + ": " + msg.text);
+				await bot.sendMessage(chatId, "Оправлено!");
+			} catch (error) {
+				await bot.sendMessage(chatId, "Произошла ошибка. Попробуйте позже.");
 			}
 
 			return (localData[chatId] = false);

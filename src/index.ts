@@ -1,5 +1,4 @@
 import * as botApi from "node-telegram-bot-api";
-
 import { AppController } from "./app.controller";
 
 // const API_KEY = process.env.API_KEY;
@@ -16,6 +15,7 @@ export const localData: Record<number, boolean> = {};
 
 function main() {
 	AppController();
+	// bot.on("message", msg => bot.sendMessage(msg.chat.id, msg.chat.id.toString()));
 }
 
 main();

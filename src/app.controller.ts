@@ -3,7 +3,7 @@ import { MediaController } from "./components/media/media.controller";
 import { MessageController } from "./components/message/message.controller";
 
 export async function AppController() {
-	BotConfig();
+	await BotConfig();
 
 	MediaController();
 	MessageController();
