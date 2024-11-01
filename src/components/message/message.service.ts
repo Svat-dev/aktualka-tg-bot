@@ -43,7 +43,9 @@ export const MessageService = async () => {
 			return (localData[chatId] = false);
 		}
 
-		await bot.sendMessage(chatId, "Простите. Я вас не понимаю.");
-		return bot.sendMessage(chatId, "Используйте команды чтобы взаимодействовать со мной.");
+		if (!msg.audio && !msg.voice && !msg.video && !msg.document) {
+			await bot.sendMessage(chatId, "Простите. Я вас не понимаю.");
+			return bot.sendMessage(chatId, "Используйте команды чтобы взаимодействовать со мной.");
+		}
 	});
 };
