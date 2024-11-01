@@ -4,14 +4,9 @@
 		"module": "commonjs",
 		"strict": true,
 		"outDir": "./dist",
-		"sourceMap": true,
-		"baseUrl": ".",
-		"paths": {
-			"@": ["src/*"]
-		}
+		"sourceMap": true
 	},
 
-	"include": ["src/**/*"],
-
+	"include": ["**/*.ts", "**/*.d.ts"],
 	"exclude": ["node_modules"]
 }
