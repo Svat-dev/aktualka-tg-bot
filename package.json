@@ -21,7 +21,6 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"node-telegram-bot-api": "^0.66.0",
-		"tsconfig-paths": "^4.2.0"
+		"node-telegram-bot-api": "^0.66.0"
 	}
 }
