@@ -4,10 +4,8 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "nodemon ./src/index.ts",
-		"prod": "node ./build/bundle.js",
-		"compile": "tsc",
-		"build": "npx webpack --mode production",
-		"start": "npx webpack --mode development"
+		"prod": "node ./dist/index.js",
+		"build": "tsc"
 	},
 	"author": "swutIIk_get",
 	"license": "ISC",
