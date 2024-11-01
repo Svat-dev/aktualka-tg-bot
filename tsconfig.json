@@ -3,7 +3,7 @@
 		"target": "ES2023",
 		"module": "commonjs",
 		"strict": true,
-		"outDir": "./build",
+		"outDir": "./dist",
 		"sourceMap": true
 	},
 
