@@ -6,7 +6,7 @@ import { AppController } from "./app.controller";
 // export const admin_id = process.env.ADMIN_ID!;
 // export const admin_id_2 = process.env.ADMIN_ID_2!;
 
-const API_KEY = "7868199007:AAE47UIlKIbCmx6jtXto_PQ0XinKEklfX-4";
+const API_KEY = "7689692647:AAHcR7OK3VC4WkZoIIULAsy63eNAKIk6jfo";
 
 export const admin_id = 1188285524;
 export const admin_id_2 = 5478105927;
