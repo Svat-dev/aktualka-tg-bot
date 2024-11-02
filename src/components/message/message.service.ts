@@ -8,7 +8,7 @@ export const MessageService = async () => {
 		const username = msg.from?.first_name;
 
 		if (msg.text === EnumCommands.START) {
-			await bot.sendMessage(chatId, "Приветствую! Это Актулка бот!");
+			await bot.sendMessage(chatId, "Приветствую! Это Актуалка бот!");
 			await bot.sendMessage(chatId, "Здесь Вы можете предложить новость");
 			return bot.sendMessage(chatId, "Чтобы начать введите /sendmessage");
 		}
@@ -17,7 +17,7 @@ export const MessageService = async () => {
 			await bot.sendMessage(chatId, "Актуалка бот");
 			await bot.sendMessage(chatId, "Версия: 1.0.0");
 			await bot.sendMessage(chatId, "Автор: @swutIIk_get");
-			return bot.sendMessage(chatId, "Для канала: @aktualka_news");
+			return bot.sendMessage(chatId, "Для канала: @aktyalka_novosti");
 		}
 
 		if (msg.text === EnumCommands.CANCEL && localData[chatId]) {
