@@ -1,4 +1,5 @@
 import * as botApi from "node-telegram-bot-api";
+
 import { AppController } from "./app.controller";
 
 // const API_KEY = process.env.API_KEY;
@@ -7,8 +8,8 @@ import { AppController } from "./app.controller";
 
 const API_KEY = "7689692647:AAHcR7OK3VC4WkZoIIULAsy63eNAKIk6jfo";
 
-export const admin_id = 1188285524;
-export const admin_id_2 = 5478105927;
+export const admin_id = 1188285524; // manager
+// export const admin_id = 5478105927; // my id
 
 export const bot = new botApi(API_KEY!, { polling: true });
 export const localData: Record<number, boolean> = {};
