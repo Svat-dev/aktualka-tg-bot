@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "nodemon ./src/index.ts",
 		"prod": "node ./dist/index.js",
-		"build": "tsc"
+		"build": "tsc",
+		"webpack": "webpack --stats-error-details"
 	},
 	"author": "swutIIk_get",
 	"license": "ISC",

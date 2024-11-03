@@ -4,8 +4,8 @@
 		"module": "commonjs",
 		"strict": true,
 		"outDir": "./dist",
-		"sourceMap": true,
-		"removeComments": true
+		"removeComments": true,
+		"sourceMap": true
 	},
 
 	"include": ["**/*.ts", "**/*.d.ts"],
