@@ -8,9 +8,9 @@ export const MessageService = async () => {
 		const username = msg.from?.first_name;
 
 		if (msg.text === EnumCommands.START) {
-			await bot.sendMessage(chatId, "Приветствую! Это Актуалка бот!");
+			await bot.sendMessage(chatId, "Приветствую👋 Это Актуалка бот!");
 			await bot.sendMessage(chatId, "Здесь Вы можете предложить новость");
-			return bot.sendMessage(chatId, "Чтобы начать введите /sendmessage");
+			return bot.sendMessage(chatId, `Чтобы начать введите ${EnumCommands.SEND_MESSAGE}.`);
 		}
 
 		if (msg.text === EnumCommands.INFO) {
@@ -30,7 +30,7 @@ export const MessageService = async () => {
 			return (localData[chatId] = true);
 		}
 
-		if (localData[chatId]) {
+		if (localData[chatId] && (msg.photo || msg.text)) {
 			try {
 				if (msg.photo) {
 					await bot.sendMessage(admin_id, "Сообщение от " + username);
@@ -39,16 +39,16 @@ export const MessageService = async () => {
 					await bot.sendMessage(admin_id, "Сообщение от " + username + ": " + msg.text);
 				}
 
-				await bot.sendMessage(chatId, "Оправлено!");
+				await bot.sendMessage(chatId, "✅ Оправлено!");
 			} catch (error) {
-				await bot.sendMessage(chatId, "Произошла ошибка. Попробуйте позже.");
+				await bot.sendMessage(chatId, "❌ Произошла ошибка. Попробуйте позже.");
 			}
 
 			return (localData[chatId] = false);
 		}
 
-		if (!msg.audio && !msg.voice && !msg.video && !msg.document) {
-			await bot.sendMessage(chatId, "Простите. Я вас не понимаю.");
+		if (!localData[chatId]) {
+			await bot.sendMessage(chatId, "Простите 😔. Я вас не понимаю.");
 			return bot.sendMessage(chatId, "Используйте команды чтобы взаимодействовать со мной.");
 		}
 	});

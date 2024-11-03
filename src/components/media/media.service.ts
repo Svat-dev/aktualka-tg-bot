@@ -5,11 +5,13 @@ export const MediaService = async () => {
 		const chatId = msg.chat.id;
 		const msgId = msg.message_id;
 
+		if (!localData[chatId]) return;
 		if (msg.photo || msg.text) return;
 
-		localData[chatId] = false;
-
 		await bot.deleteMessage(chatId, msgId);
-		return bot.sendMessage(chatId, "К сожалению вы не можете отправлять файл такого типа!");
+		await bot.sendMessage(chatId, "❌");
+		await bot.sendMessage(chatId, "К сожалению вы не можете отправлять файл такого типа!");
+
+		return (localData[chatId] = false);
 	});
 };
